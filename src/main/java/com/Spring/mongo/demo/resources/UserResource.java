@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.Spring.mongo.demo.services.UserService;
-
+import com.Spring.mongo.demo.domain.Post;
 import com.Spring.mongo.demo.domain.User;
 import com.Spring.mongo.demo.dto.UserDTO;
 
@@ -61,5 +61,11 @@ public class UserResource {
     obj.setId(id);
     obj = service.update(obj);
     return ResponseEntity.noContent().build();
+  }
+
+  @GetMapping(value = "/{id}/posts")
+  public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+    User obj = service.findById(id);
+    return ResponseEntity.ok().body(obj.getPosts());
   }
 }
