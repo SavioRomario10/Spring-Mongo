@@ -41,4 +41,15 @@ public class UserService {
     findById(id);
     repository.delete(id);
   }
+
+  public User update(User obj){
+    User newUser = repository.findOne(obj.getId());
+    updateData(newUser, obj);
+    return repository.save(newUser);
+  }
+
+  public void updateData(User newUser, User obj){
+    newUser.setName(obj.getName());
+    newUser.setEmail(obj.getEmail());
+  }
 }
