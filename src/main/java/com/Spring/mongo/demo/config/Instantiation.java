@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import com.Spring.mongo.demo.dto.AuthorDTO;
-
+import com.Spring.mongo.demo.dto.ComentDTO;
 import com.Spring.mongo.demo.domain.User;
 import com.Spring.mongo.demo.repositories.UserRepository;
 
@@ -41,6 +41,13 @@ public class Instantiation implements CommandLineRunner{
 
     Post p1 = new Post(null, sdf.parse("21/03/2018 13:05:44"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(us1));
     Post p2 = new Post(null, sdf.parse("21/03/2018 13:05:44"), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(us2));
+
+    ComentDTO cm1 = new ComentDTO("Boa viagem", sdf.parse("21/03/2018 13:05:44"), new AuthorDTO(us3));
+    ComentDTO cm2 = new ComentDTO("Aproveite", sdf.parse("21/03/2018 13:05:44"), new AuthorDTO(us2));
+    ComentDTO cm3 = new ComentDTO("Tenha um ótimo dia", sdf.parse("21/03/2018 13:05:44"), new AuthorDTO(us1));
+
+    p1.getComents().addAll(Arrays.asList(cm1, cm2));
+    p2.getComents().addAll(Arrays.asList(cm3));
 
     postRepository.saveAll(Arrays.asList(p1, p2));
 
