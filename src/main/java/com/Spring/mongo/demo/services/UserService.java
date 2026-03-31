@@ -9,7 +9,6 @@ import com.Spring.mongo.demo.services.exception.ObjectNotFoundException;
 import com.Spring.mongo.demo.dto.UserDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 
 @Service
 public class UserService {
