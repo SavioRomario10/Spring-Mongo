@@ -17,7 +17,7 @@ public class PostService {
   private PostRepository repository;
 
   public Post findById(String id){
-    Post post = repository.findOne(id);
+    Post post = repository.findById(id).orElse(null);
     if(post == null){
       throw new ObjectNotFoundException("Objeto não encontrado");
     }

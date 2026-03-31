@@ -1,7 +1,7 @@
 package com.Spring.mongo.demo.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class ComentDTO implements Serializable{
 
